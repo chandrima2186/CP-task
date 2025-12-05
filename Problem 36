@@ -1,0 +1,33 @@
+Question: Chef has two numbers A and B.In one operation, Chef can choose either A or B and multiply it by 2.
+Determine whether he can make both A and B equal after any number (possibly, zero) of moves.
+Input Format
+The first line of input will contain a single integer T, denoting the number of test cases.
+Each test case consists of two space-separated integers A and B.
+Output Format
+For each test case, output YES if Chef can make both numbers equal, NO otherwise.
+Note that the checker is case-insensitive i.e. YES, Yes, yes, yES are all considered same.
+Constraints:           (Codechef)
+1≤T≤2500
+1≤A,B≤50
+
+
+#include <iostream>
+using namespace std;
+bool canMakeEqual(int A, int B) {
+    int X = max(A, B);
+    int Y = min(A, B);
+    int ratio = X / Y;
+    if (X % Y != 0) return false;
+    while (ratio % 2 == 0) ratio /= 2;
+    return ratio == 1;
+}
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int A, B;
+        cin >> A >> B;
+        cout << (canMakeEqual(A, B) ? "YES" : "NO") << endl;
+    }
+    return 0;
+}
