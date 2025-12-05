@@ -1,0 +1,47 @@
+Question: You are given a string S consisting of English letters (uppercase and lowercase), digits, and spaces ' '. The string may contain leading or trailing spaces, or multiple spaces between words.
+Your task is to reverse the order of the words in the string. A word is defined as a sequence of non-space characters.
+The resulting string should:
+Contain words in reversed order.
+Have only single spaces separating words.
+Not contain leading or trailing spaces.
+Input Format
+The first line of input contains a single string S.
+S may contain spaces at the beginning, the end, or multiple consecutive spaces.
+Output Format
+Print a single line containing the words of S in reversed order, separated by a single space, with no leading or trailing spaces.
+S contains English letters (both uppercase and lowercase), digits, and spaces ' '.
+There is at least one word in S.
+Constraints
+1≤∣S∣≤10^4
+S contains English letters (both uppercase and lowercase), digits, and spaces ' '.
+There is at least one word in S.
+(Codechef)
+
+
+#include <iostream>
+#include <sstream>
+using namespace std;
+int main() {
+    string S;
+    getline(cin, S);
+    stringstream ss(S);
+    string word, result = "";
+    while (ss >> word) {
+        if (result.empty()) {
+            result = word;
+        } else {
+            result = word + " " + result;
+        }
+    }
+    cout << result << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
