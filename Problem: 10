@@ -1,0 +1,23 @@
+Question: Given an integer n, return a string array answer (1-indexed) where:
+answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+answer[i] == "Fizz" if i is divisible by 3.
+answer[i] == "Buzz" if i is divisible by 5.
+answer[i] == i (as a string) if none of the above conditions are true.  (Leetcode)
+Input: n = 3
+Output: ["1","2","Fizz"]
+Constraints:
+1 <= n <= 104
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    for (int x = 1; x <= n; x++) {
+        if (x % 3 == 0 && x % 5 == 0) cout << "FizzBuzz\n";
+        else if (x % 3 == 0) cout << "Fizz\n";
+        else if (x % 5 == 0) cout << "Buzz\n";
+        else cout << x << "\n";
+    }
+    return 0;
+}
