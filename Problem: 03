@@ -1,0 +1,33 @@
+Given an integer x, return true if x is a palindrome, and false otherwise.(Leetcode)
+Input: x = 121
+Output: true
+Constraints:
+-231 <= x <= 231 - 1
+
+#include <bits/stdc++.h>
+using namespace std;
+namespace user {
+    int x, n = 0;
+}
+int main() {
+    cin >> user::x;
+    if (user::x < 0) {
+        cout << "false";
+        return 0;
+    }
+    if (user::x % 10 == 0 && user::x != 0) {
+        cout << "false";
+        return 0;
+    }
+    int m = user::x;
+    while (m > user::n) {
+        user::n = user::n * 10 + m % 10;
+        m /= 10;
+    }
+    if (m == user::n || m == user::n / 10)
+        cout << "true";
+    else
+        cout << "false";
+
+    return 0;
+}
