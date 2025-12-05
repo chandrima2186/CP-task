@@ -1,0 +1,32 @@
+Question: Given an integer n, return true if n has exactly three positive divisors. Otherwise, return false.
+An integer m is a divisor of n if there exists an integer k such that n = k * m.   (Leetcode)
+Input: n = 4
+Output: true
+ Constraints:
+1 <= n <= 104
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int i = 1;
+    while (i * i < n) i++; // find square root
+    if (i * i != n) {
+        cout << "false\n";
+    } else {
+        // check if i is prime
+        bool prime = true;
+        if (i < 2) prime = false;
+        for (int j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                prime = false;
+                break;
+            }
+        }
+        if (prime) cout << "true\n";
+        else cout << "false\n";
+    }
+    return 0;
+}
