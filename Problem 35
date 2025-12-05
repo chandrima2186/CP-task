@@ -1,0 +1,31 @@
+Question: Two integers A and B are the inputs. Write a program to find GCD and LCM of A and B.
+Input Format
+The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer A and B.
+Output Format
+Display the GCD and LCM of A and B separated by space respectively. The answer for each test case must be displayed in a new line.
+Constraints:                               (Codechef)
+1 ≤ T ≤ 1000 1 ≤ A,B ≤ 1000000
+
+
+#include <iostream>
+using namespace std;
+long long gcd(long long a, long long b) {
+    while (b != 0) {
+        long long temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        long long A, B;
+        cin >> A >> B;
+        long long g = gcd(A, B);           
+        long long l = (A / g) * B;         
+        cout << g << " " << l << endl;
+    }
+    return 0;
+}
