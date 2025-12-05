@@ -4,7 +4,7 @@ Input: s = "Hello World"
 Output: 5
 Constraints:
 1 <= s.length <= 104
-s consists of only English letters and spaces ' '.
+s consists of only English letters and spaces ' '. 
 There will be at least one word in s.
 
 
