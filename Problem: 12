@@ -1,0 +1,22 @@
+Question: Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
+Input: nums = [1,2,3]      (Leetcode)
+Output: 6
+Constraints:
+3 <= nums.length <= 104
+-1000 <= nums[i] <= 1000 
+
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int nums[n];
+    for(int i = 0; i < n; i++) cin >> nums[i];
+    sort(nums, nums + n);
+    int product1 = nums[n-1] * nums[n-2] * nums[n-3];
+    int product2 = nums[0] * nums[1] * nums[n-1];
+    cout << max(product1, product2) << endl;
+    return 0;
+}
