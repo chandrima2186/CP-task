@@ -1,0 +1,40 @@
+Question: A "prefix array" is a data structure commonly used in programming, particularly in algorithms related to strings or arrays. Also known as a "prefix sum array", it stores cumulative sums of elements in an array.
+We generally use it to optimize the time complexity of a given algorithm.
+Using a prefix array in an array of integers: -
+array (a)        -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+prefix array (b) -> [1, 3, 6, 10, 15, 21, 28, 36, 45, 55]
+We created a prefix array, which stores a cumulative sum of all the previous indexes of the array. This is our prefix array for a.
+Similarly, we also have prefix arrays for strings:
+string s = "codechef";
+prefixOfs = [c,co,cod,code,codec,codech,codeche,codechef]; 
+We created a prefix array for "codechef". In strings, we use the prefix array in a different manner. We concatenate characters in our prefix array of strings.                                                                                              Task
+In the first line, given an integer N, the length of an array.
+In the second line, given N integers in an array A1, A2,... AN,.     (Codechef)
+Print the prefix sum of the array.
+Constraints:
+100000
+1≤N≤100000
+1≤Ai≤1000
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int N;
+    cin >> N;
+    vector<int> arr(N);
+    for (int i = 0; i < N; i++) {
+        cin >> arr[i];
+    }
+    vector<long long> prefix(N);
+    prefix[0] = arr[0];
+    for (int i = 1; i < N; i++) {
+        prefix[i] = prefix[i-1] + arr[i];
+    }
+    for (int i = 0; i < N; i++) {
+        cout << prefix[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
