@@ -1,0 +1,19 @@
+Question: Given a string s, find the length of the longest substring without duplicate characters.
+Input: s = "abcabcbb"
+Output: 3
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    vector<int> m(256, -1);
+    int l = 0, a = 0;
+    for (int i = 0; i < s.size(); i++) {
+        if (m[s[i]] >= l) l = m[s[i]] + 1;
+        m[s[i]] = i;
+        a = max(a, i - l + 1);
+    }
+    cout << a;
+}
