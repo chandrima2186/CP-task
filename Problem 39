@@ -1,0 +1,43 @@
+Question: Chef has an array nums of N balls, where each ball is painted red, white, or blue. The balls are represented by integers:
+0 → Red
+1 → White
+2 → Blue
+Chef wants to arrange the balls so that balls of the same color are together in the order:
+Red, White, then Blue.
+Help Chef sort the array in-place, without using any built-in sorting functions.
+Input Format
+The first line of input will contain a single integer T, denoting the number of test cases.
+Each test case consists of multiple lines of input.
+The first line of each test case contains a single integer N — the number of balls.
+The next line contains N space-separated integers, where each integer is one of:
+0 → Red
+1 → White
+2 → Blue
+Output Format
+For each test case, output on a new line the sorted array of N integers, arranged such that all 0s come first, followed by all 1s, then all 2s.
+Constraints:           (Codechef)
+1≤N≤300
+nums[i]∈{0,1,2}
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int x[n], m = 0, mid = 0, high = n - 1;
+        for (int i = 0; i < n; i++) cin >> x[i];
+        while (mid <= high) {
+            if (x[mid] == 0) swap(x[m++], x[mid++]);
+            else if (x[mid] == 1) mid++;
+            else swap(x[mid], x[high--]);
+        }
+        for (int i = 0; i < n; i++) cout << x[i] << " ";
+        cout << endl;
+    }
+}
+
