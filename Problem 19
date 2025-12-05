@@ -1,0 +1,28 @@
+Question: You are given two strings S and G of equal length. Determine whether string S can be transformed into string G by performing a series of left-shifts.
+A left-shift operation moves the first character of a string to the end of the string. For example, a left-shift on "abcde" results in "bcdea".
+If it is possible to transform S into G using zero or more left-shifts, print "Yes".
+Otherwise, print "No".
+Input Format
+The first line contains a string S.
+The second line contains a string G.
+Output Format
+Print "Yes" if S can be rotated to become G, otherwise print "No".  (Codechef)
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    string S, G;
+    cin >> S >> G;
+    if (S.length() != G.length()) {
+        cout << "No" << endl;
+        return 0;
+    }
+    string doubled = S + S;  
+    if (doubled.find(G) != string::npos) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+    return 0;
+}
