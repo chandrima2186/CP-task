@@ -1,0 +1,18 @@
+Question: Given a sorted array and a target, return the first andlast index of the target in the array. If target not found, return -1 -1.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n, target;
+    cin >> n;
+    vector<int> nums(n);
+    for(int &x : nums) cin >> x;
+    cin >> target;
+    auto first = lower_bound(nums.begin(), nums.end(), target);
+    auto last = upper_bound(nums.begin(), nums.end(), target);
+    if(first == nums.end() || *first != target)
+        cout << "-1 -1\n";
+    else
+        cout << first - nums.begin() << " " << (last - nums.begin() - 1) << "\n";
+}
