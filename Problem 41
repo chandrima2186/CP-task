@@ -1,0 +1,29 @@
+Question:Rhezo likes numbers of the form A^B. But computing A^B , for any 2 numbers A and B is a hard task for him. He would like you to help him out in this.
+Input:
+First line of input contains a single integer A. Second line contains the integer B.
+Output:
+Help Rhezo find A^B. As this number can be large, print it modulo 10^9+7.  (Hackerearth)
+
+
+#include <bits/stdc++.h>
+using namespace std;
+const long long M = 1000000007;
+long long p(long long a, long long b){
+    long long r = 1;
+    a %= M;
+    while(b){
+        if(b & 1) r = (r * a) % M;
+        a = (a * a) % M;
+        b >>= 1;
+    }
+    return r;
+}
+int main() {
+    long long A, B;
+    cin >> A >> B;
+    cout << p(A, B);
+}
+
+
+
+
