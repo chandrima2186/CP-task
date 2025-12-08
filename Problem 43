@@ -1,0 +1,23 @@
+Question: 
+Chef saw A clouds in the morning, and B clouds in the evening.He believes that it will rain if the number of clouds he saw in the evening is at least 3 times of the number of the clouds he saw in the morning.
+Given the values of A and B, what will Chef's prediction be?    (Codechef)
+Input Format
+The only line of input contains two space-separated integers A and B — the number of clouds Chef saw in the morning and evening, respectively.
+Output Format
+Output a single line containing the answer: Rain if Chef believes it will rain, and Dry otherwise.
+Each character of the output may be printed in either uppercase or lowercase, i.e. the strings dry, Dry, DrY, and dRY are all considered equivalent.
+Constraints:
+1≤A,B≤20
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, B;
+    cin >> A >> B;
+    if (B >= 3 * A) cout << "Rain";
+    else cout << "Dry";
+    return 0;
+}
